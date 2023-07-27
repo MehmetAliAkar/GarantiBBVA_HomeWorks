@@ -5,7 +5,7 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
             PhoneApp phoneApp = new PhoneApp();
-            double total = phoneApp.calculateTotalPrice(phoneApp.phoneArr);
+            double total = phoneApp.calculateTotalPrice(phoneApp.phoneArr);//equalize the value of total price
             System.out.println("Total price of smart phones: "+total);
         }
     }
