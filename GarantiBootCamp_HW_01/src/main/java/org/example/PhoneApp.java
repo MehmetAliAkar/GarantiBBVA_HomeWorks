@@ -10,11 +10,11 @@ public class PhoneApp {
     SmartPhone phoneArr[] = new SmartPhone[]{sp1, sp2, sp3, sp4, sp5};
 
     public double calculateTotalPrice(SmartPhone[] smartPhoneArray){
-    double totalPrice = 0.0F;
+    double totalPrice = 0.0F;//create a total price variable
         for (SmartPhone phone : smartPhoneArray) {
-            totalPrice+=phone.price;
+            totalPrice+=phone.price;//add each phone price to the total price
         }
-        return totalPrice;
+        return totalPrice;//return the total price
     }
 
 }
