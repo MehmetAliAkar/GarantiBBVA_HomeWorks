@@ -1,0 +1,94 @@
+Q2-Insert Scripts
+1-Country
+
+INSERT INTO "Country"(id, name)
+	VALUES (01, 'Turkey');
+
+INSERT INTO "Country"(id, name)
+	VALUES (02, 'Germany');
+
+INSERT INTO "Country"(id, name)
+	VALUES (03, 'Iran');
+
+INSERT INTO "Country"(id, name)
+	VALUES (04, 'Ireland');
+	
+INSERT INTO "Country"(id, name)
+	VALUES (05, 'Syria');
+
+
+2-Lig
+INSERT INTO public."Lig"(
+	id, "adı", id_country)
+	VALUES (01, 'Turkey', 01);
+	
+INSERT INTO public."Lig"(
+	id, "adı", id_country)
+	VALUES (04, 'Ireland', 04);
+	
+INSERT INTO public."Lig"(
+	id, "adı", id_country)
+	VALUES (05, 'Syria', 05);
+	
+INSERT INTO public."Lig"(
+	id, "adı", id_country)
+	VALUES (06, 'Iran', 06);
+	
+INSERT INTO public."Lig"(
+	id, "adı", id_country)
+	VALUES (02, 'Germany', 02);
+	
+INSERT INTO public."Lig"(
+	id, "adı", id_country)
+	VALUES (03, 'Netherlands', 03);
+
+3-Oyuncu
+INSERT INTO public."Oyuncu"(
+	id, "adı", "soyadı", id_team, id_country, "attığı gol")
+	VALUES (01, 'Mehmet Ali', 'AKAR', 01, 01, 10);
+	
+INSERT INTO public."Oyuncu"(
+	id, "adı", "soyadı", id_team, id_country, "attığı gol")
+	VALUES (02, 'Ricardo', 'QUARESMA', 02, 02, 8);
+	
+INSERT INTO public."Oyuncu"(
+	id, "adı", "soyadı", id_team, id_country, "attığı gol")
+	VALUES (03, 'Mario', 'GOMEZ', 03, 03, 32);
+4-Takım
+INSERT INTO public."Takim"(
+	id, "adı", id_leauge, "kuruluş yılı", "attığı gol", "yediği gol", puan, " seviye")
+	VALUES (01, 'Beşiktaş', 01, 1903, 190, 50, 81, 1);
+	
+INSERT INTO public."Takim"(
+	id, "adı", id_leauge, "kuruluş yılı", "attığı gol", "yediği gol", puan, " seviye")
+	VALUES (02, 'Galatasaray', 02, 1905, 150, 90, 71, 1);
+	
+INSERT INTO public."Takim"(
+	id, "adı", id_leauge, "kuruluş yılı", "attığı gol", "yediği gol", puan, " seviye")
+	VALUES (03, 'Fenerbahçe', 03, 1907, 140, 100, 50, 1);
+
+Q3-
+SELECT * FROM "Lig"
+WHERE adı = 'Turkey';
+
+Q4-
+SELECT * FROM "Takim"
+WHERE adı = 'Turkey';
+
+Q5-
+SELECT adı,puan FROM "Takim"
+WHERE seviye = 1
+ORDER BY puan;
+
+Q6-
+SELECT ROUND(AVG(puan),3) FROM "Takim";
+
+Q7-
+SELECT MAX("attığı gol") FROM "Oyuncu";
+
+Q8-
+SELECT * FROM "Takim"
+WHERE "attığı gol" < "yediği gol";
+
+
+

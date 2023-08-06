@@ -1,0 +1,72 @@
+1- CREATE SCRIPTS
+1-Country
+CREATE TABLE IF NOT EXISTS public."Country"
+(
+    id bigint NOT NULL,
+    name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Country_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Country"
+    OWNER to postgres;
+
+2-Lig
+
+CREATE TABLE IF NOT EXISTS public."Lig"
+(
+    id bigint NOT NULL,
+    "adı" character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    id_country character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Lig_pkey" PRIMARY KEY (id_country)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Lig"
+    OWNER to postgres;
+
+3-Oyuncu
+-- Table: public.Oyuncu
+
+-- DROP TABLE IF EXISTS public."Oyuncu";
+
+CREATE TABLE IF NOT EXISTS public."Oyuncu"
+(
+    id bigint NOT NULL,
+    "adı" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "soyadı" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_team bigint,
+    id_country bigint NOT NULL,
+    "attığı gol" bigint DEFAULT 0,
+    CONSTRAINT "Oyuncu_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Oyuncu"
+    OWNER to postgres;
+
+4-Takim
+-- Table: public.Takim
+
+-- DROP TABLE IF EXISTS public."Takim";
+
+CREATE TABLE IF NOT EXISTS public."Takim"
+(
+    id bigint NOT NULL,
+    "adı" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_leauge bigint NOT NULL,
+    "kuruluş yılı" bigint NOT NULL,
+    "attığı gol" bigint,
+    "yediği gol" bigint,
+    puan bigint DEFAULT 0,
+    " seviye" bigint NOT NULL DEFAULT 2,
+    CONSTRAINT "Takim_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public."Takim"
+    OWNER to postgres;
